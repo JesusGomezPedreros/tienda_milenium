@@ -30,6 +30,9 @@ namespace tienda
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtEnvase = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
@@ -51,9 +54,6 @@ namespace tienda
             this.btnActualizar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtEnvase = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,13 +87,40 @@ namespace tienda
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de productos";
             // 
+            // txtEnvase
+            // 
+            this.txtEnvase.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEnvase.Location = new System.Drawing.Point(214, 235);
+            this.txtEnvase.Multiline = true;
+            this.txtEnvase.Name = "txtEnvase";
+            this.txtEnvase.Size = new System.Drawing.Size(177, 25);
+            this.txtEnvase.TabIndex = 13;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(26, 239);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(62, 21);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Envase";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Location = new System.Drawing.Point(458, 111);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(100, 28);
+            this.txtCodigo.TabIndex = 18;
+            this.txtCodigo.Visible = false;
+            // 
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Location = new System.Drawing.Point(458, 48);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(118, 57);
-            this.btnBuscar.TabIndex = 16;
+            this.btnBuscar.TabIndex = 17;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
@@ -104,7 +131,7 @@ namespace tienda
             this.txtCantidad.Multiline = true;
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(177, 25);
-            this.txtCantidad.TabIndex = 15;
+            this.txtCantidad.TabIndex = 16;
             // 
             // txtPrecio
             // 
@@ -113,7 +140,7 @@ namespace tienda
             this.txtPrecio.Multiline = true;
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(177, 25);
-            this.txtPrecio.TabIndex = 14;
+            this.txtPrecio.TabIndex = 15;
             // 
             // txtTamaño
             // 
@@ -122,7 +149,7 @@ namespace tienda
             this.txtTamaño.Multiline = true;
             this.txtTamaño.Name = "txtTamaño";
             this.txtTamaño.Size = new System.Drawing.Size(177, 25);
-            this.txtTamaño.TabIndex = 13;
+            this.txtTamaño.TabIndex = 14;
             // 
             // txtColor
             // 
@@ -287,32 +314,6 @@ namespace tienda
             this.button2.Text = "Limpiar";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Location = new System.Drawing.Point(458, 111);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(100, 28);
-            this.txtCodigo.TabIndex = 17;
-            this.txtCodigo.Visible = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(26, 239);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(62, 21);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "Envase";
-            // 
-            // txtEnvase
-            // 
-            this.txtEnvase.Location = new System.Drawing.Point(214, 235);
-            this.txtEnvase.Multiline = true;
-            this.txtEnvase.Name = "txtEnvase";
-            this.txtEnvase.Size = new System.Drawing.Size(177, 25);
-            this.txtEnvase.TabIndex = 19;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -350,13 +351,13 @@ namespace tienda
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtEnvase;
     }
 }

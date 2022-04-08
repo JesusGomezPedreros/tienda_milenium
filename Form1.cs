@@ -31,11 +31,11 @@ namespace tienda
             string categoria = txtCategoria.Text;
             string color = txtColor.Text;
             string envase = txtEnvase.Text;
-            double tamaño = double.Parse(txtTamaño.Text);
+            string tamano = txtTamaño.Text;
             double precio = double.Parse(txtPrecio.Text);
             int cantidad = int.Parse(txtCantidad.Text);
             
-            string sql = "INSER INTO productos (sku, marca, tipoProducto, categoria, color, envase, tamaño, precio, cantidad) VALUES ('"+sku+ "','" + marca +"','" + tipoProducto+ "','" + categoria+ "','" + color + "','"+envase+"','" + tamaño + "','" + precio + "','" + cantidad + "')";
+            string sql = "INSERT INTO productos (sku, marca, tipoProducto, categoria, color, envase, tamano, precio, cantidad) VALUES ('" + sku+ "','" + marca +"','" + tipoProducto+ "','" + categoria+ "','" + color + "','"+envase+"','" + tamano + "','" + precio + "','" + cantidad + "')";
 
             MySqlConnection conexionBD = Conexion.conexion();
 
