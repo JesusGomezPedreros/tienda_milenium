@@ -21,35 +21,52 @@ namespace tienda
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            string sku = txtSku.Text;
-            string marca = txtMarca.Text;
-            string tipoProducto = txtTipoProducto.Text;
-            string categoria = txtCategoria.Text;
-            string color = txtColor.Text;
-            string envase = txtEnvase.Text;
-            string tamano = txtTamaño.Text;
-            double precio = double.Parse(txtPrecio.Text);
-            int cantidad = int.Parse(txtCantidad.Text);
-            
-            string sql = "INSERT INTO productos (sku, marca, tipoProducto, categoria, color, envase, tamano, precio, cantidad) VALUES ('" + sku+ "','" + marca +"','" + tipoProducto+ "','" + categoria+ "','" + color + "','"+envase+"','" + tamano + "','" + precio + "','" + cantidad + "')";
-
-            MySqlConnection conexionBD = Conexion.conexion();
-
-            conexionBD.Open();
             try
             {
-                MySqlCommand comando = new MySqlCommand(sql, conexionBD);
-                comando.ExecuteNonQuery();
-                MessageBox.Show("Registro guardado");
-                limpiar();
+                string sku = txtSku.Text;
+                string marca = txtMarca.Text;
+                string tipoProducto = txtTipoProducto.Text;
+                string categoria = txtCategoria.Text;
+                string color = txtColor.Text;
+                string envase = txtEnvase.Text;
+                string tamano = txtTamaño.Text;
+                double precio = double.Parse(txtPrecio.Text);
+                int cantidad = int.Parse(txtCantidad.Text);
+
+                if (sku != "" && marca != "" && tipoProducto != "" && categoria != "" && color != "" && envase != "" && tamano != "" && precio > 0 && cantidad >= 0)
+                {
+
+
+
+                    string sql = "INSERT INTO productos (sku, marca, tipoProducto, categoria, color, envase, tamano, precio, cantidad) VALUES ('" + sku + "','" + marca + "','" + tipoProducto + "','" + categoria + "','" + color + "','" + envase + "','" + tamano + "','" + precio + "','" + cantidad + "')";
+
+                    MySqlConnection conexionBD = Conexion.conexion();
+
+                    conexionBD.Open();
+                    try
+                    {
+                        MySqlCommand comando = new MySqlCommand(sql, conexionBD);
+                        comando.ExecuteNonQuery();
+                        MessageBox.Show("Registro guardado");
+                        limpiar();
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show("error al guardar: " + ex.Message);
+                    }
+                    finally
+                    {
+                        conexionBD.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe completar todos los campos (el valor debe ser mayor a 0)");
+                }
             }
-            catch(MySqlException ex)
+            catch (FormatException fex)
             {
-                MessageBox.Show("error al guardar: " + ex.Message);
-            }
-            finally
-            {
-                conexionBD.Close();
+                MessageBox.Show("Datos Incorrectos: " + fex.Message);
             }
 
         }
@@ -105,36 +122,48 @@ namespace tienda
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            string id = txtCodigo.Text;
-            string sku = txtSku.Text;
-            string marca = txtMarca.Text;
-            string tipoProducto = txtTipoProducto.Text;
-            string categoria = txtCategoria.Text;
-            string color = txtColor.Text;
-            string envase = txtEnvase.Text;
-            string tamano = txtTamaño.Text;
-            double precio = double.Parse(txtPrecio.Text);
-            int cantidad = int.Parse(txtCantidad.Text);
-
-            string sql = "UPDATE productos SET sku='"+sku+"', marca='"+marca+ "',tipoProducto='"+tipoProducto+"',categoria='"+categoria+"',color='"+color+"',envase='"+envase+"',tamano='"+tamano+"',precio='"+precio+"',cantidad='"+cantidad+"' WHERE idproductos='"+id+"'";
-            MySqlConnection conexionBD = Conexion.conexion();
-
-            conexionBD.Open();
             try
             {
-                MySqlCommand comando = new MySqlCommand(sql, conexionBD);
-                comando.ExecuteNonQuery();
-                MessageBox.Show("Registro Modificado");
-                limpiar();
+                string id = txtCodigo.Text;
+                string sku = txtSku.Text;
+                string marca = txtMarca.Text;
+                string tipoProducto = txtTipoProducto.Text;
+                string categoria = txtCategoria.Text;
+                string color = txtColor.Text;
+                string envase = txtEnvase.Text;
+                string tamano = txtTamaño.Text;
+                double precio = double.Parse(txtPrecio.Text);
+                int cantidad = int.Parse(txtCantidad.Text);
+            
+
+
+                string sql = "UPDATE productos SET sku='"+sku+"', marca='"+marca+ "',tipoProducto='"+tipoProducto+"',categoria='"+categoria+"',color='"+color+"',envase='"+envase+"',tamano='"+tamano+"',precio='"+precio+"',cantidad='"+cantidad+"' WHERE idproductos='"+id+"'";
+                MySqlConnection conexionBD = Conexion.conexion();
+
+                conexionBD.Open();
+                try
+                {
+                    MySqlCommand comando = new MySqlCommand(sql, conexionBD);
+                    comando.ExecuteNonQuery();
+                    MessageBox.Show("Registro Modificado");
+                    limpiar();
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("error al modificar: " + ex.Message);
+                }
+                finally
+                {
+                    conexionBD.Close();
+                }
+
             }
-            catch (MySqlException ex)
+            catch (FormatException fex)
             {
-                MessageBox.Show("error al modificar: " + ex.Message);
+                MessageBox.Show("Datos incorrectos" + fex.Message);
             }
-            finally
-            {
-                conexionBD.Close();
-            }
+
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
